@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: final
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=final;encrypt=false; # change it if necessary
+    username: sa
+    password: <your sql server password>
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  graphql:
+    graphiql:
+      enabled: true
+  web:
+    resources:
+      static-locations: classpath:/static/
+
+server:
+  port: 9005
+
+junit:
+  jupiter:
+    execution:
+      parallel:
+        enabled: true
+        mode:
+          default: concurrent
+
+grpc:
+  server:
+    port: 9006
