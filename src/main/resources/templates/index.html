@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Person List</title>
+</head>
+<body>
+<h2>Person List</h2>
+<table border="2">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Date of Birth</th>
+        <th>Contact Info</th>
+        <th>Nationality</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="person : ${listPersons}">
+        <td th:text="${person.id}"></td>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.gender}"></td>
+        <td th:text="${person.dateOfBirth}"></td>
+        <td th:text="${person.contactInfo}"></td>
+        <td th:text="${person.nationality}"></td>
+        <td>
+            <form th:action="@{/edit}" method="get" style="display:inline;">
+                <input type="hidden" name="id" th:value="${person.id}">
+                <button type="submit">Edit</button>
+            </form>
+            <form th:action="@{/delete}" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this person?');">
+                <input type="hidden" name="id" th:value="${person.id}">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="/add.html">Add New Person</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

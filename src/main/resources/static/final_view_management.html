@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Tickets</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Tickets</h2></div>
+    <div class="m-2">
+        <form th:action="@{/api/v1/admin/update_view}" method="post">
+            <button type="submit" class="btn btn-primary">Update View</button>
+        </form>
+    </div>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Movie ID</th>
+                <th>Title</th>
+                <th>Seat No</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="ticket : ${listPersons}">
+                <tr>
+                    <td>[[${ticket.ticketID}]]</td>
+                    <td>[[${ticket.movieID}]]</td>
+                    <td>[[${ticket.Title}]]</td>
+                    <td>[[${ticket.seatNo}]]</td>
+                    <td>
+                        <form th:action="@{'/api/v1/admin/deltbl/' + ${ticket.ticketID}}" method="post">
+                            <input type="hidden" name="_method" value="delete" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

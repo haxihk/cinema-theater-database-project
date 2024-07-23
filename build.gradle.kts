@@ -34,10 +34,17 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
-
+	implementation("javax.persistence:javax.persistence-api:2.2")
 // others
+	implementation ("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation ("org.springframework.boot:spring-boot-starter-security")
+	implementation ("org.springframework.boot:spring-boot-starter-web")
+	implementation ("org.springframework.security:spring-security-core")
+	implementation ("org.springframework.boot:spring-boot-starter-jdbc")
+	testImplementation ("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 	compileOnly("org.projectlombok:lombok")
+	implementation ("com.microsoft.sqlserver:mssql-jdbc")
 	runtimeOnly("com.microsoft.sqlserver:mssql-jdbc")
 	annotationProcessor("org.projectlombok:lombok")
 
